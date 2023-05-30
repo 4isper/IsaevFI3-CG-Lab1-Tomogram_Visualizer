@@ -75,14 +75,18 @@ namespace tomogram_visualizer
             if(loaded)
             {
                 //view.DrawQuads(currentLayer);
-                if (needReload)
+                if (radioButton2.Checked)
                 {
-                    view.generateTextureImage(currentLayer);
-                    view.Load2DTexture();
-                    needReload = false;
-                }
-                view.DrawTexture();
-                glControl1.SwapBuffers();
+                    if (needReload)
+                    {
+                        view.generateTextureImage(currentLayer);
+                        view.Load2DTexture();
+                        needReload = false;
+                    }
+                    view.DrawTexture();
+                } else 
+                    view.DrawQuads(currentLayer);
+              glControl1.SwapBuffers();
             }
         }
 
